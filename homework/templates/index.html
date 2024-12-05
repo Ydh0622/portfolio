@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>자취생으로 살아남기</title>
+    <link rel="stylesheet" href="{% static 'css/aos/aos.css' %}?after">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}?after">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}?after">
+</head>
+<body>
+<header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+        <a href=" " class="logo d-flex align-items-center">
+            <h1>자취생으로 살아남기<span>.</span></h1>
+        </a>
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li><a href="/Recommendation" class="">추천</a></li>
+                <li><a href="Review" class="">리뷰</a></li>
+                <li><a href="Notice" class="">공지사항</a></li>
+                <li><a href="Q&A" class="">Q&A</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<section id="hero" class="hero d-flex align-items-center">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center pb-4" style="height: 100px;">
+            <form action="#" class="form-search d-flex col-md-8 mb-3 aos-init aos-animate" data-aos="fade-up"
+                  data-aos-delay="200">
+                <input type="text" class="form-control" placeholder="검색하세요">
+                <button type="submit" class="btn btn-primary col-md-3">Search</button>
+            </form>
+            <img src="{% static 'image/home2.png' %}" class="img-fluid aos-init aos-animate" data-aos="zoom-out" alt=""
+                 style="width: 400px; height: 398px;">
+        </div>
+    </div>
+
+</section>
+<main id="main">
+    <section id="service" class="services pt-0">
+        <div class="container aos-init aos-animate" data-aos="fade-up">
+            <div class="section-header">
+            </div>
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="{% static 'image/recipe.jpg' %}" alt class="img-fluid" style="height: 354px;">
+                        </div>
+                        <h3>
+                            <a href="service-recipe" class="stretched-link">레시피</a>
+                        </h3>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="{% static 'image/cal.jpg' %}" alt class="img-fluid" style="height: 354px;">
+                        </div>
+                        <h3>
+                            <a href="service-Cal" class="stretched-link">일정관리</a>
+                        </h3>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" style="height: 420px;">
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="{% static 'image/money.jpg' %}" alt class="img-fluid">
+                        </div>
+                        <h3>
+                            <a href="service-TIP" class="stretched-link">예산관리</a>
+                        </h3>
+                    </div>
+                </div>
+    </section>
+</main>
+</body>
+</html>

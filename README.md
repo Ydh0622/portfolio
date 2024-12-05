@@ -1,4 +1,4 @@
-# portfolio
+# Portfolio
 
 # hand_detector
 https://github.com/Ydh0622/portfolio/blob/main/hand_detector/hand_detector.py

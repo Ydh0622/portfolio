@@ -4,8 +4,9 @@ import { projectsData, type Project } from './data/projectsData';
 import { GithubIcon } from './components/GithubIcon';
 import { HeroSection } from './components/HeroSection';
 import { AboutSection } from './components/AboutSection';
-import { ProjectModal } from './components/ProjectModal';
 import { ExperienceSection } from './components/ExperienceSection';
+import { ProjectModal } from './components/ProjectModal';
+import { Footer } from './components/Footer';
 
 export default function App() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -14,9 +15,19 @@ export default function App() {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setSelectedProject(null);
     };
+
+    if (selectedProject) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+    return () => {
+      document.body.style.overflow = 'unset';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedProject]);
 
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-indigo-100 selection:text-indigo-900">
@@ -32,6 +43,12 @@ export default function App() {
             <a href="#projects" className="hover:text-indigo-600 transition-colors">
               Projects
             </a>
+            <a href="#experience" className="hover:text-indigo-600 transition-colors">
+              Experience
+            </a>
+            <a href="#contact" className="hover:text-indigo-600 transition-colors">
+              Contact
+            </a>
             <a
               href="https://github.com/Ydh0622"
               target="_blank"
@@ -41,9 +58,6 @@ export default function App() {
             >
               <GithubIcon className="w-5 h-5" />
             </a>
-            <a href="#experience" className="hover:text-indigo-600 transition-colors">
-  Experience
-</a>
           </nav>
         </div>
       </header>
@@ -167,6 +181,7 @@ export default function App() {
             ))}
           </div>
         </section>
+
         <ExperienceSection />
       </main>
 
@@ -174,21 +189,7 @@ export default function App() {
         <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
       )}
 
-      <footer className="py-12 px-6 border-t border-gray-100 bg-white text-center text-sm text-gray-500">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="font-semibold text-gray-800">프론트엔드 개발자 포트폴리오</p>
-          <div className="flex gap-6">
-            <a
-              href="https://github.com/Ydh0622"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-indigo-600"
-            >
-              GitHub
-            </a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
